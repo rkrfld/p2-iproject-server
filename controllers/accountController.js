@@ -44,8 +44,8 @@ class Controller {
         id: user.id,
         email: user.email
       })
-
-      res.status(200).json({access_token: token})
+console.log(user);
+      res.status(200).json({access_token: token, username: user.username, avatar: user.avatar})
       
     } catch (err) {
       next(err)
