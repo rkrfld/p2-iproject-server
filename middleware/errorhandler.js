@@ -24,6 +24,10 @@ const errorhandler = (err, req, res, next) => {
       res.status(400).json({ message: 'Invalid Email or Password' })
       break;
 
+    case "invalidToken":
+      res.status(401).json({ message: 'Invalid Token' })
+      break;
+
     default:
       console.log(err);
       res.status(500).json({ message: 'Internal Server Error' })
