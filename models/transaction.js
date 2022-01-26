@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Thread extends Model {
+  class Transaction extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,14 +13,14 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Thread.init({
-    title: DataTypes.STRING,
-    firstPost: DataTypes.TEXT,
+  Transaction.init({
+    order_id: DataTypes.STRING,
     status: DataTypes.STRING,
-    UserId: DataTypes.INTEGER
+    UserId: DataTypes.INTEGER,
+    AuctionId: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'Thread',
+    modelName: 'Transaction',
   });
-  return Thread;
+  return Transaction;
 };
