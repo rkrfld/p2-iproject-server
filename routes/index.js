@@ -6,7 +6,7 @@ const authenMiddleware = require('../middleware/authentication')
 const Controller = require('../controllers/auctionController')
 
 router.use('/account', accountRouter)
-router.post('/transaction', Controller.transaction)
+router.get('/transaction', Controller.transaction)
 
 router.use(authenMiddleware)
 
