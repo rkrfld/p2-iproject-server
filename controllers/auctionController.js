@@ -43,7 +43,7 @@ class Controller {
       const item = await Auction.findByPk(req.params.id)
       let date = new Date()
       date = date.toISOString().slice(10)
-      console.log(date);
+  
       let orderId = `${user.id}_${item.id}_${date}`
 
       let parameter = {
@@ -65,6 +65,7 @@ class Controller {
 
 
       const result = await snap.createTransaction(parameter)
+      console.log(result);
       
       res.status(200).json(result)
     } catch (err) {
@@ -75,7 +76,6 @@ class Controller {
   static async transaction(req, res, next) {
     try {
       const { transaction_status, order_id } = req.query
-      console.log(transaction_status, order_id , "<<<<<<<<<");
 
       let value = {
         status: transaction_status,
