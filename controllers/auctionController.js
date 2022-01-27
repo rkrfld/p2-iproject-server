@@ -85,8 +85,9 @@ class Controller {
       }
 
       const resp = await Transaction.create(value)
-      console.log(resp);
+
       res.status(201).json(resp)
+      window.location.href = "https://tipsytips-b123c.web.app/orderhistory"
     } catch (err) {
       console.log(err);
     }
