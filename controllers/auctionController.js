@@ -43,7 +43,7 @@ class Controller {
       const item = await Auction.findByPk(req.params.id)
       let date = new Date()
       date = date.toISOString().slice(10)
-  
+
       let orderId = `${user.id}_${item.id}_${date}`
 
       let parameter = {
@@ -58,7 +58,7 @@ class Controller {
         "customer_details": {
           "username": user.username,
           "email": user.email,
-          
+
         }
       };
 
@@ -66,7 +66,7 @@ class Controller {
 
       const result = await snap.createTransaction(parameter)
       console.log(result);
-      
+
       res.status(200).json(result)
     } catch (err) {
       console.log(err);
@@ -86,8 +86,7 @@ class Controller {
 
       const resp = await Transaction.create(value)
 
-      res.status(201).json(resp)
-      window.location.href = "https://tipsytips-b123c.web.app/orderhistory"
+      res.redirect(301, 'https://tipsytips-b123c.web.app/orderhistory');
     } catch (err) {
       console.log(err);
     }
